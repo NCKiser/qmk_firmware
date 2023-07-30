@@ -54,6 +54,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (clockwise) {
+      tap_code16(S(KC_VOLD));
+    } else {
+      tap_code16(KC_VOLU);
+    }
+    return true;
+};
+
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM combo_bspc[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_numbak[] = {KC_0, KC_9, COMBO_END};
